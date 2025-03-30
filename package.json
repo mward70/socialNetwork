@@ -1,10 +1,15 @@
 {
   "name": "socialnetwork",
   "version": "1.0.0",
-  "description": "Social Network API that utilized MongoDB and Mongoose",
+  "description": "Social Network API that utilizes MongoDB and Mongoose",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node seed/index.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "clean": "node seed/cleanDB.js",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
@@ -15,6 +20,8 @@
     "mongoose": "^8.12.2"
   },
   "devDependencies": {
+    "eslint": "^9.23.0",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.9"
   }
 }
