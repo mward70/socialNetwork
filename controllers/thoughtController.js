@@ -35,7 +35,7 @@ export const CreateThought = async (req, res) => {
             { new: true }
         );
 
-        res.status(201).jsosn(newThought);
+        res.status(201).json(newThought);
     } catch (err) {
         res.status(500).json({ error: err.message })
     }

@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
-import apiRoutes from './routes/index.js'
+import router from './routes/index.js'
 
 dotenv.config(); //load env variables
 connectDB(); //connect to MongoDB
@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3001;
 //The `express.json()` middleware attaches incoming json data from requests to the `req.body` property.
 app.use(express.json());
 
-app.use('/api', apiRoutes)
+app.use('/api', router)
 // mongoose.connect(process.env.MONGO_URI, {
 //     useNewUrlParsee: true,
 //     useUnifiedTopology: true
