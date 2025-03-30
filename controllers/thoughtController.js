@@ -42,7 +42,7 @@ export const CreateThought = async (req, res) => {
 };
 
 //PUT/update thought
-export const updateThought = async (req, red) => {
+export const updateThought = async (req, res) => {
     try {
         const updated = await Thought.findByIdAndUpdate(
             req.params.thoughtId,
