@@ -1,5 +1,4 @@
 import {Router} from 'express';
-const router= Router();
 import{
 getThoughts,
 getThoughtById,
@@ -10,6 +9,7 @@ addReaction,
 deleteReaction
 } from '../../controllers/thoughtController.js';
 
+const router= Router();
 // /api/thoughts
 router.route('/').get(getThoughts).post(CreateThought);
 

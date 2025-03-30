@@ -1,8 +1,10 @@
 //boiler plate from M17A28
 import {Router} from 'express';
-import apiRoutes from './api/index.js';
+import { userRouter } from './api/userRoutes.js';
+import { thoughtRouter } from './api/thoughtRoutes.js';
 const router = Router();
 
-router.use('/api', apiRoutes);
+router.use('/users', userRouter);
+router.use('/thoughts', thoughtRouter)
 
 export default router;

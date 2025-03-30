@@ -1,10 +1,10 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import connectDB from './config/db';
+import connectDB from './config/db.js';
+import apiRoutes from './routes/index.js'
 
-connectDB();
-dotenv.config();
+dotenv.config(); //load env variables
+connectDB(); //connect to MongoDB
 
 const app=express();
 const PORT = process.env.PORT || 3001;
@@ -16,12 +16,17 @@ const PORT = process.env.PORT || 3001;
 //The `express.json()` middleware attaches incoming json data from requests to the `req.body` property.
 app.use(express.json());
 
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParsee: true,
-    useUnifiedTopology: true
-}). then (()=>{
-    console.log('connected to mongoDB');
-    app.listen(PORT, ()=> console.log(`Server running on port ${PORT}`));
-}). catch(err=>{
-    console.error('MongoDB connection error:', err);
-});
+app.use('/api', apiRoutes)
+// mongoose.connect(process.env.MONGO_URI, {
+//     useNewUrlParsee: true,
+//     useUnifiedTopology: true
+// }). then (()=>{
+//     console.log('connected to mongoDB');
+//     app.listen(PORT, ()=> console.log(`Server running on port ${PORT}`));
+// }). catch(err=>{
+//     console.error('MongoDB connection error:', err);
+// });
+
+app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}`);
+  });
